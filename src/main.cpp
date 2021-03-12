@@ -5,19 +5,20 @@
 #else
 #include<cmath>
 #endif
-int main()
+int main(int argc, char* argv[])
  { 
-    double asd = 45;
-#ifdef USE_TRIGONOMETRY_DEGREE
-  double  result = degreemath::cosinus(asd);
   
+#ifdef USE_TRIGONOMETRY_DEGREE
+    if (argc >= 2) {
+        double deg = strtod(argv[1], NULL);
+        double  result = degreemath::cosinus(deg);
+        std::cout << result;
+    }
 #else
+    double asd = 100;
    double result = cos(asd);
+   std::cout << result;
 #endif
 
- //double degree=45;
- //double tg = degreemath::tangens(degree);
- std::cout<<result;
- //
  return 0; 
  }
